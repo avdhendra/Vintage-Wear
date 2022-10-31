@@ -23,3 +23,5 @@ function App() {
 }
 
 export default App;
+
+//when ever the netfliy hosted website refresh it request the index.html build file which we send through the _redirect
