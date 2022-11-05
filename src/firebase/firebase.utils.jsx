@@ -12,7 +12,7 @@ import { initializeApp } from "firebase/app";import {
 import{
     getFirestore,
     doc,
-    getDoc,
+  getDoc,
     setDoc,collection,writeBatch, query, getDocs
 } from "firebase/firestore"
 
@@ -80,26 +80,28 @@ export const getCategoriesAndDocuments = async () => {
   const collectionRef = collection(db, 'categories')
   const queryFromDatabase = query(collectionRef)
   const querySnapshot = await getDocs(queryFromDatabase)
-  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
-    const { title, items } = docSnapshot.data()
-    acc[title.toLowerCase()] = items
-    return acc;
-  }, {})
-  return categoryMap
+  return querySnapshot.docs.map(docSnapshot=>docSnapshot.data())
+  //   .reduce((acc, docSnapshot) => {
+  //   const { title, items } = docSnapshot.data()
+  //   acc[title.toLowerCase()] = items
+  //   return acc;
+  // }, {})
+  // return categoryMap
 }
 
 export const getDirectoryDocument = async () => {
   const collectionRef = collection(db, 'directory')
   const queryFromDatabase = query(collectionRef)
   const querySnapshot = await getDocs(queryFromDatabase)
-  const DirectoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
-    const {name,items} = docSnapshot.data()
+    return  querySnapshot.docs.map(docSnapshot=>docSnapshot.data())
+    //.reduce((acc, docSnapshot) => {
+  //   const {name,items} = docSnapshot.data()
     
-    acc[name.toLowerCase()] = items
-    return acc
-  }, {})
+  //   acc[name.toLowerCase()] = items
+  //   return acc
+  // }, {})
  
-  return DirectoryMap
+  //return DirectoryMap
 
 }
 
@@ -112,31 +114,34 @@ export const getDirectoryDocument = async () => {
 
 export const createUserDocumentFromAuth = async (
   userAuth,
-  additionalInformation = {}
+  additionalInformation={}
 ) => {
+  
   if (!userAuth) return;
 
-  const userDocRef = doc(db, 'users', userAuth.uid);
+ 
+  const userRef = doc(db, 'users', userAuth.uid);
 
-  const userSnapshot = await getDoc(userDocRef);
+  const userSnapshot = await getDoc(userRef);
 
   if (!userSnapshot.exists()) {
-    const { Username, email } = userAuth;
+    const { displayName, email } = userAuth;
     const createdAt = new Date();
 
     try {
-      await setDoc(userDocRef, {
-        Username,
+      await setDoc(userRef, {
+        displayName,
         email,
         createdAt,
         ...additionalInformation,
+        
       });
     } catch (error) {
       console.log('error creating the user', error.message);
     }
   }
 
-  return userDocRef;
+  return userRef;
 };
 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {

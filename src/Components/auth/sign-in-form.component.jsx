@@ -8,7 +8,7 @@ import {
 import "./sign-in-form.style.scss";
 import { Button } from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
-//import { UserContext } from "../context/user.context";
+
 
 const defaultFormField = {
   email: "",
@@ -19,20 +19,11 @@ function SignInForm() {
   const [formField, setFormField] = useState(defaultFormField);
   const { email, password } = formField;
 
-//const {setCurrentUser} = useContext(UserContext)
-
- 
-  // const resetFormFields = () => {
-  //   setFormField(defaultFormField);
-  // };
 
   //Google authentication
   const signInWithGoogle = async () => {
  await signInWithGooglePopup();
-      //const{user}
-     // console.log(response)
-    //setCurrentUser(user);
-   // await createUserDocumentFromAuth(user);
+
   };
 
   //console.log(formField);

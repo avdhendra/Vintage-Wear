@@ -48,8 +48,8 @@ function SignUpForm() {
         password
       );
   
-     // console.log(user);
-      await createUserDocumentFromAuth(user, { Username });
+    console.log('avc',user);
+      await createUserDocumentFromAuth(user, { Username } );
       resetFormFields();
   
     }
