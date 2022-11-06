@@ -2,7 +2,7 @@
 
 import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as ShoppingIcon } from "../../assests/shopping-bag.svg";
-import {  setIsCartOpenReducer } from "../../Slice/cartSlice";
+import {  setIsCartOpenReducer } from "../../Slice/AsynThunkReducers/cartSlice";
 import { selectCartCount, selectIsCartOpen } from "../../Slice/memoized_selectors/cart.selector";
 //import { CartContext } from "../context/cart.context";
 import "./cart-icon.style.scss";

@@ -7,14 +7,15 @@ import { useParams } from "react-router-dom";
 
 import ProductCard from "../../Components/ProductCard/ProductCard.component";
 import Spinner from "../../Components/spinner/spinner";
-import { selectCategoriesLoading, selectCategoriesMap } from "../../Slice/memoized_selectors/category.selector";
+import { selectCategoriesLoadingSaga, selectCategoriesMapSaga } from "../../Slice/SagaReducers/memoized_saga_selector/category.saga.selector";
+// import { selectCategoriesLoading, selectCategoriesMap } from "../memoized_selectors/category.selector";
 
 import "./category.style.scss";
 function Category() {
   const { category } = useParams();
 
-  const categoriesMap = useSelector(selectCategoriesMap);
- const isLoading=useSelector(selectCategoriesLoading)
+  const categoriesMap = useSelector(selectCategoriesMapSaga);
+ const isLoading=useSelector(selectCategoriesLoadingSaga)
   const [products, setProducts] = useState(categoriesMap[category]);
 
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { cartItemsSlice, isCartOpenSlice } from '../../Slice/cartSlice'
+import { cartItemsSlice, isCartOpenSlice } from '../../Slice/AsynThunkReducers/cartSlice'
 import { selectCartItems, selectCartTotal } from '../../Slice/memoized_selectors/cart.selector'
 import CheckoutItem from '../checkout-item/checkout-item.component'
 //import { CartContext } from '../context/cart.context'

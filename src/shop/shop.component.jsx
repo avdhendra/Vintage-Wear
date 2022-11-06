@@ -8,7 +8,8 @@ import {
 import CategoriesPreview from "../Routes/categories-preview/categories-preview.component";
 import Category from "../Routes/category/category.component";
 import SHOP_DATA from "../shop-data";
-import { fetchCategories, setCategories } from "../Slice/categoriesSlice";
+import { fetchCategories, setCategories } from "../Slice/AsynThunkReducers/categoriesSlice";
+import { setCategoriesStart } from "../Slice/SagaReducers/categories.Saga.Slice";
 
 import "./shop.style.scss";
 
@@ -26,7 +27,8 @@ const Shop = () => {
 
     ////getCategoriesMap();
 
-    dispatch(fetchCategories())
+   // dispatch(fetchCategories())
+    dispatch(setCategoriesStart())
   }, []);
   return (
     <Routes>

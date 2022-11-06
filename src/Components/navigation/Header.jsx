@@ -5,7 +5,7 @@ import { ReactComponent as CrwnLogo } from "../../assests/crown.svg";
 import { signOutUser } from "../../firebase/firebase.utils";
 //import { isCartOpenSlice } from "../../Slice/cartSlice";
 import { selectIsCartOpen } from "../../Slice/memoized_selectors/cart.selector";
-import { currentUserSlice } from "../../Slice/userSlice";
+import { currentUserSlice } from "../../Slice/AsynThunkReducers/userSlice";
 import CartDropDown from "../cart-dropdown/cart-dropdown.component";
 import CartIcon from '../cart-icon/cart-icon'
 ;

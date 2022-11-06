@@ -1,7 +1,7 @@
 
 import { useDispatch, useSelector } from "react-redux";
 import { addItemToCart } from "../../Slice/action/cart.action";
-import { setCartItems } from "../../Slice/cartSlice";
+import { setCartItems } from "../../Slice/AsynThunkReducers/cartSlice";
 import { selectCartItems } from "../../Slice/memoized_selectors/cart.selector";
 import { Button } from "../button/button.component";
 //import { CartContext } from "../context/cart.context";

@@ -2,7 +2,8 @@ import { Fragment, } from "react";
 import { useSelector } from "react-redux";
 import CategoryPreview from "../../Components/category-preview/category-preview.component";
 import Spinner from "../../Components/spinner/spinner";
-import { selectCategoriesLoading, selectCategoriesMap } from "../../Slice/memoized_selectors/category.selector";
+import { selectCategoriesLoadingSaga, selectCategoriesMapSaga } from "../../Slice/SagaReducers/memoized_saga_selector/category.saga.selector";
+//import { selectCategoriesLoading, selectCategoriesMap } from "../../Slice/memoized_selectors/category.selector";
 
 
 
@@ -10,8 +11,8 @@ import { selectCategoriesLoading, selectCategoriesMap } from "../../Slice/memoiz
 
 const CategoriesPreview = () => {
   // const { categoriesMap } = useContext(CategoriesContext);
-  const categoriesMap = useSelector(selectCategoriesMap)
- const isLoading=useSelector(selectCategoriesLoading)
+  const categoriesMap = useSelector(selectCategoriesMapSaga)
+ const isLoading=useSelector(selectCategoriesLoadingSaga)
   return (
     <Fragment>
       {isLoading === 'loading' ? (<Spinner />) : (

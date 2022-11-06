@@ -7,8 +7,10 @@ import {
   addCollectionAndDocument,
   
 } from "../../firebase/firebase.utils";
+import { fetchDirectory } from "../../Slice/AsynThunkReducers/directoriesSlice";
 //import { setDirectoryItem } from "../../Slice/categoriesSlice";
-import { fetchDirectory } from "../../Slice/directoriesSlice";
+// import { fetchDirectory } from "../../Slice/directoriesSlice";
+
 import { directoriesSlice, selectDirectoriesLoading } from "../../Slice/memoized_selectors/directory.selector";
 
 function Home() {

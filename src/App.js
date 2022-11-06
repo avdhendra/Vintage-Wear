@@ -9,7 +9,7 @@ import { useEffect } from "react";
 import { createUserDocumentFromAuth, onAuthStateChangedListener } from "./firebase/firebase.utils";
 import { useDispatch } from "react-redux";
 
-import { setUser } from "./Slice/userSlice";
+import { setUser } from "./Slice/AsynThunkReducers/userSlice";
 
 
 

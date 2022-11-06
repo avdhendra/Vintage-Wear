@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getCategoriesAndDocuments } from "../firebase/firebase.utils";
+import { getCategoriesAndDocuments } from "../../firebase/firebase.utils";
 
 export const fetchCategories = createAsyncThunk("fetchCategories", async () => {
   const Categories = await getCategoriesAndDocuments();

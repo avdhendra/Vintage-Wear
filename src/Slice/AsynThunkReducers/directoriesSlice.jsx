@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { getDirectoryDocument } from "../firebase/firebase.utils";
+import { getDirectoryDocument } from "../../firebase/firebase.utils";
 
 const INITIAL_STATE = {
   directories: [],
