@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import { cartItemsSlice, isCartOpenSlice } from '../../Slice/AsynThunkReducers/cartSlice'
 import { selectCartItems, selectCartTotal } from '../../Slice/memoized_selectors/cart.selector'
 import CheckoutItem from '../checkout-item/checkout-item.component'
+import PaymentForm from '../payment-form/payment.-form.component'
 //import { CartContext } from '../context/cart.context'
 import './checkout.style.scss'
 
@@ -44,7 +45,8 @@ function CheckOut() {
               )
           })
       } 
-      <span className='total'>Total: $ { total}</span>
+      <span className='total'>Total: $ {total}</span>
+      <PaymentForm/>
         </div>
   
   )

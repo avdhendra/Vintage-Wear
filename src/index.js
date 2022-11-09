@@ -9,18 +9,23 @@ import reportWebVitals from "./reportWebVitals";
 //import { CartProvider } from "./Components/context/cart.context";
 import { Provider } from "react-redux";
 import { persistor, store } from "./store/store";
-import { PersistGate } from 'redux-persist/integration/react'
+import { PersistGate } from "redux-persist/integration/react";
+import { Elements } from "@stripe/react-stripe-js";
+import { stripePromise } from "./utils/stripe/stripe.utils";
+
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Provider store={store}>     
-   <PersistGate loading={null} persistor={persistor} >
-          <App />
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter>
+          <Elements stripe={stripePromise} >
+            <App />
+          </Elements>
+        </BrowserRouter>
       </PersistGate>
-     
-        </Provider>
-    </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
 

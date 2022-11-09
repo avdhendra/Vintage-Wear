@@ -11,7 +11,7 @@ import FormInput from "../form-input/form-input.component";
 import "./sign-up-form.style.scss";
 
 const defaultFormField = {
-  Username: "",
+  displayName: "",
   email: "",
   password: "",
   confirmPassword: "",
@@ -19,7 +19,7 @@ const defaultFormField = {
 
 function SignUpForm() {
   const [formField, setFormField] = useState(defaultFormField);
-  const { Username, email, password, confirmPassword } = formField;
+  const { displayName, email, password, confirmPassword } = formField;
   console.log(formField);
 
   const resetFormFields = () => {
@@ -43,13 +43,14 @@ function SignUpForm() {
     }
   
     try {
-   const{user}=await createAuthUserWithEmailAndPassword(
+   const user=await createAuthUserWithEmailAndPassword(
         email,
-        password
+        password,displayName
       );
+    
   
-    console.log('avc',user);
-      await createUserDocumentFromAuth(user, { Username } );
+    //console.log('avc',user);
+      await createUserDocumentFromAuth(user, { displayName } );
       resetFormFields();
   
     }
@@ -74,9 +75,9 @@ function SignUpForm() {
           required
           label="Username"
           type="text"
-          name="Username"
+          name="displayName"
           onChange={handleChange}
-          value={Username}
+          value={displayName}
         />
 
         <FormInput

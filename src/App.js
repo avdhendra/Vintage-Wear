@@ -46,3 +46,5 @@ function App() {
 export default App;
 
 //Redux Persist library  is to store the state in local storage of browser so that if we refresh it stay in browser
+//Variable in .dotenv 
+/**starts with REACT_APP  */
